@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PhishShield — Interactive Phishing Awareness Training</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#0b5fff"/><path d="M6 13l3 3 9-9" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div>
+          <h1 class="site-title">PhishShield</h1>
+          <p class="site-subtitle">Interactive Phishing Awareness Training</p>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Main Navigation">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false">Menu</button>
+        <ul class="nav-list" id="navList">
+          <li><a href="#" data-target="landing" class="nav-link active">Home</a></li>
+          <li><a href="#" data-target="what" class="nav-link">What is Phishing?</a></li>
+          <li><a href="#" data-target="recognize" class="nav-link">Recognizing Emails</a></li>
+          <li><a href="#" data-target="urls" class="nav-link">URL Analysis</a></li>
+          <li><a href="#" data-target="social" class="nav-link">Social Engineering</a></li>
+          <li><a href="#" data-target="types" class="nav-link">Phishing Types</a></li>
+          <li><a href="#" data-target="cases" class="nav-link">Case Studies</a></li>
+          <li><a href="#" data-target="quiz" class="nav-link">Quiz</a></li>
+          <li><a href="#" data-target="scenarios" class="nav-link">Scenarios</a></li>
+          <li><a href="#" data-target="checklist" class="nav-link">Checklist</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" id="app">
+
+    <section id="landing" class="section active" tabindex="-1">
+      <div class="hero">
+        <div>
+          <h2>Learn to spot phishing — Protect yourself and your organization</h2>
+          <p class="lead">PhishShield teaches practical skills to recognize phishing emails, fake websites, and social-engineering tactics. Interactive modules, quizzes, and scenarios help you build safer habits.</p>
+          <div class="hero-actions">
+            <button id="startBtn" class="btn primary">Start Training</button>
+            <a href="#quiz" class="btn ghost" data-target="quiz">Take Quiz</a>
+          </div>
+        </div>
+        <div class="hero-aside">
+          <div class="progress-card">
+            <h3>Training Progress</h3>
+            <div class="progress-bar" aria-hidden="true"><div id="progressFill" style="width:0%"></div></div>
+            <div class="progress-stats"><span id="progressPercent">0%</span> complete</div>
+          </div>
+        </div>
+      </div>
+      <div class="intro-cards">
+        <article class="card">
+          <h4>Why phishing is dangerous</h4>
+          <p>Phishing is often the first step in account takeover, data loss, and malware infections. Attackers exploit trust and haste — learning recognition is your best defense.</p>
+        </article>
+        <article class="card">
+          <h4>What you'll learn</h4>
+          <ul>
+            <li>How to inspect emails and URLs</li>
+            <li>Common social-engineering tactics</li>
+            <li>Interactive quizzes and scenarios</li>
+            <li>Practical defensive responses</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="what" class="section" tabindex="-1">
+      <h2>What is Phishing?</h2>
+      <p>Phishing is a social-engineering attack that tricks people into revealing sensitive information or performing actions that compromise security. Attackers impersonate trusted entities to gain access.</p>
+      <h3>Why attackers use phishing</h3>
+      <p>Because it targets human trust and curiosity — often the easiest route to credentials, money, or access.</p>
+      <h3>Typical attack flow</h3>
+      <ol class="flow">
+        <li>Attacker</li>
+        <li>Social Engineering</li>
+        <li>Victim Interaction</li>
+        <li>Malicious Link / Attachment</li>
+        <li>Credential Theft or Malware</li>
+        <li>Account / System Compromise</li>
+      </ol>
+    </section>
+
+    <section id="recognize" class="section" tabindex="-1">
+      <h2>Recognizing Phishing Emails</h2>
+      <p>Inspect the sender, subject, tone, links, and attachments carefully.</p>
+
+      <div class="email-examples">
+        <div class="email-card suspicious" aria-live="polite">
+          <h3>Example: Suspicious Email</h3>
+          <p class="meta"><strong>From:</strong> payroll@secure-pay.example</p>
+          <p class="meta"><strong>Subject:</strong> URGENT: Your Account Will Be Suspended</p>
+          <div class="email-body">
+            <p>Hello,</p>
+            <p>We detected unusual activity on your account. <strong>Verify now</strong> or your access will be suspended within 24 hours.</p>
+            <p><em>Click here to verify: https://secure-pay.example/verify</em></p>
+            <p>Thanks,<br>Example Payroll Team</p>
+          </div>
+          <ul class="highlights">
+            <li><strong>Sender mismatch:</strong> display name and address differ</li>
+            <li><strong>Urgency pressure:</strong> threats to suspend access</li>
+            <li><strong>Suspicious link:</strong> unclear domain and path</li>
+            <li><strong>Generic greeting:</strong> not personalized</li>
+          </ul>
+        </div>
+
+        <div class="email-card legitimate">
+          <h3>Example: Legitimate-Looking Email (Fictional)</h3>
+          <p class="meta"><strong>From:</strong> support@secure-example.com</p>
+          <p class="meta"><strong>Subject:</strong> Your Monthly Statement Is Ready</p>
+          <div class="email-body">
+            <p>Hi Jamie,</p>
+            <p>Your statement for July is ready. Visit your account dashboard to view it. If you did not request this, contact support.</p>
+            <p>— Secure Example Team</p>
+          </div>
+          <ul class="highlights">
+            <li><strong>Look for unexpected requests:</strong> even legitimate senders can be spoofed</li>
+            <li><strong>Verify via separate channels:</strong> log in from known bookmarks, not email links</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="urls" class="section" tabindex="-1">
+      <h2>Fake Websites & URL Analysis</h2>
+      <p>Inspect domains, subdomains, spelling, and paths. HTTPS alone doesn't guarantee legitimacy.</p>
+      <ul class="url-examples">
+        <li><code>https://secure-example.com</code> — looks normal</li>
+        <li><code>https://secure-example-login.com</code> — lookalike domain</li>
+        <li><code>https://login.secure-example.com.example.org</code> — subdomain trick</li>
+        <li><code>https://exarnple-security.com</code> — typosquatting</li>
+      </ul>
+      <p>Warning signs: unexpected redirects, shortened links, domains that don't match official sites, and mismatched SSL certificate names.</p>
+    </section>
+
+    <section id="social" class="section" tabindex="-1">
+      <h2>Social Engineering Tactics</h2>
+      <p>Attackers manipulate emotions — urgency, fear, authority, curiosity, and greed — to make victims act without verifying.</p>
+      <div class="tactics-grid">
+        <article class="card">
+          <h4>Urgency</h4>
+          <p>Scenario: "Immediate action required" to avoid penalty. Warning: short deadlines, pressure. Defensive response: pause, verify via known contact.</p>
+        </article>
+        <article class="card">
+          <h4>Authority</h4>
+          <p>Scenario: "Your manager asked..." Warning: impersonation. Defensive response: confirm by calling the manager or sending a separate message.</p>
+        </article>
+        <article class="card">
+          <h4>Curiosity & Greed</h4>
+          <p>Scenario: "You've won a prize" or enticing links. Warning: unsolicited offers. Defensive response: don't click; verify with sender.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="types" class="section" tabindex="-1">
+      <h2>Common Phishing Types</h2>
+      <ul class="types-list">
+        <li><strong>Email Phishing:</strong> broad-scope fraudulent messages.</li>
+        <li><strong>Spear Phishing:</strong> targeted to a specific person.</li>
+        <li><strong>Whaling:</strong> targeted at executives.</li>
+        <li><strong>Smishing:</strong> SMS-based phishing.</li>
+        <li><strong>Vishing:</strong> voice call scams.</li>
+        <li><strong>BEC:</strong> Business Email Compromise targeting finance.</li>
+        <li><strong>Clone Phishing:</strong> duplicate of a legitimate email with malicious changes.</li>
+        <li><strong>QR-code Phishing:</strong> malicious QR codes leading to fake sites.</li>
+      </ul>
+    </section>
+
+    <section id="cases" class="section" tabindex="-1">
+      <h2>Real-World Case Studies (Educational)</h2>
+
+      <article class="case">
+        <h3>Incident: Target data breach (2013)</h3>
+        <p><strong>What happened:</strong> Attackers gained access to Target's network via credentials stolen from a third-party HVAC vendor, leading to the theft of millions of customer payment card records.</p>
+        <p><strong>Attack technique:</strong> Credential compromise from a trusted vendor and lateral movement into point-of-sale systems.</p>
+        <p><strong>Warning signs:</strong> Unusual vendor access, unexpected authentication activity, and systems behaving abnormally.</p>
+        <p><strong>Defensive lesson:</strong> Enforce least-privilege access for third parties, monitor vendor activity, segment networks, and require multi-factor authentication (MFA).</p>
+      </article>
+
+      <article class="case">
+        <h3>Incident: 2016 Democratic spear-phishing campaign (publicized 2016)</h3>
+        <p><strong>What happened:</strong> Targeted spear-phishing messages led to credential compromise of several high-profile email accounts, resulting in data exposure.</p>
+        <p><strong>Attack technique:</strong> Highly targeted phishing emails crafted to appear relevant to recipients (spear-phishing), including fake login prompts and password-reset lures.</p>
+        <p><strong>Warning signs:</strong> Unexpected password-reset notices, messages tailored to personal or organization context, and unfamiliar sender addresses despite realistic display names.</p>
+        <p><strong>Defensive lesson:</strong> Use strong MFA, verify password-reset requests via separate channels, and provide targeted phishing-awareness training to high-risk roles.</p>
+      </article>
+
+      <article class="case">
+        <h3>Incident: FACC Business Email Compromise (2016)</h3>
+        <p><strong>What happened:</strong> An Austrian aerospace supplier (FACC) reported fraudulent wire transfers after attackers impersonated executives and instructed finance staff to transfer funds.</p>
+        <p><strong>Attack technique:</strong> Business Email Compromise (BEC) — email impersonation and social-engineering to authorize fraudulent payments.</p>
+        <p><strong>Warning signs:</strong> Unusual payment requests, pressure to act urgently, requests for secrecy, and changes in payment details without standard validation.</p>
+        <p><strong>Defensive lesson:</strong> Enforce verification procedures for payment changes (voice verification using known numbers), segregation of duties, and transaction approval workflows.</p>
+      </article>
+    </section>
+
+    <section id="quiz" class="section" tabindex="-1">
+      <h2>Interactive Quiz</h2>
+      <div id="quizApp" class="quiz">
+        <div id="quizIntro">
+          <p>Test your phishing recognition skills. Feedback is immediate and educational.</p>
+          <button id="startQuiz" class="btn primary">Start Quiz</button>
+        </div>
+        <div id="quizQuestion" hidden>
+          <div class="quiz-meta">Question <span id="qIndex">1</span> of <span id="qTotal">10</span></div>
+          <div id="qText" class="q-text"></div>
+          <ul id="qChoices" class="choices" role="list"></ul>
+          <div id="qFeedback" class="q-feedback" aria-live="polite"></div>
+          <div class="quiz-actions">
+            <button id="nextQ" class="btn" disabled>Next</button>
+            <button id="retakeQuiz" class="btn ghost" hidden>Retake Quiz</button>
+          </div>
+        </div>
+        <div id="quizResults" hidden>
+          <h3>Results</h3>
+          <div id="scoreSummary"></div>
+          <button id="retakeBtn" class="btn">Retake Quiz</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="scenarios" class="section" tabindex="-1">
+      <h2>Scenario-Based Challenges</h2>
+      <div id="scenarioList" class="scenarios"></div>
+    </section>
+
+    <section id="checklist" class="section" tabindex="-1">
+      <h2>Phishing Checklist</h2>
+      <p>Before clicking a link: <strong>STOP. VERIFY. THEN ACT.</strong></p>
+      <form id="checklistForm" class="checklist">
+        <label><input type="checkbox" name="c1"> Do I recognize the sender?</label>
+        <label><input type="checkbox" name="c2"> Is the sender address legitimate?</label>
+        <label><input type="checkbox" name="c3"> Was I expecting this message?</label>
+        <label><input type="checkbox" name="c4"> Is there unusual urgency?</label>
+        <label><input type="checkbox" name="c5"> Does the URL match the real organization?</label>
+        <label><input type="checkbox" name="c6"> Is the message asking for credentials?</label>
+        <label><input type="checkbox" name="c7"> Is the attachment expected?</label>
+        <label><input type="checkbox" name="c8"> Can I independently verify the request?</label>
+        <div class="check-actions">
+          <button type="button" id="markSafe" class="btn primary">Mark Safe</button>
+          <button type="button" id="markReview" class="btn ghost">Needs Review</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="help" class="section" tabindex="-1">
+      <h2>If You Clicked a Phishing Link</h2>
+      <ul>
+        <li>Stop interacting with the page immediately.</li>
+        <li>Do not enter any more information.</li>
+        <li>From a trusted device, change passwords for affected accounts.</li>
+        <li>Enable multi-factor authentication (MFA) where available.</li>
+        <li>Report the incident to your security or IT team.</li>
+        <li>Monitor accounts and follow incident-response procedures.</li>
+      </ul>
+    </section>
+
+    <section id="complete" class="section" tabindex="-1">
+      <h2>PhishShield Awareness Training Completed</h2>
+      <div id="completionSummary" class="completion">
+      </div>
+      <div class="completion-actions">
+        <button id="retakeTraining" class="btn">Retake Training</button>
+        <button id="retakeQuiz2" class="btn ghost">Retake Quiz</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>PhishShield — Educational project for CodeAlpha Task 2. Fictional examples only. No credential collection.</small>
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

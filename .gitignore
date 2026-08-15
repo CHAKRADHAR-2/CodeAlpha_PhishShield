@@ -1,0 +1,9 @@
+# Ignore typical system files
+.DS_Store
+Thumbs.db
+
+# Node not used but ignore node_modules if present
+node_modules/
+
+# VS Code workspace files
+.vscode/
